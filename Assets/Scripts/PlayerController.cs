@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool canFlipGravity = true;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale *= -1;
             canFlipGravity = false;
+            gameManager.IncreaseObstacleVelocity();
         }
         else if(Input.GetButtonUp("Jump"))
         {
