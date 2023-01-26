@@ -9,9 +9,12 @@ public class PlayerController : MonoBehaviour
     private bool canFlipGravity = true;
 
     public GameManager gameManager;
-    private bool gameOver = true;
+    private bool started = false;
+    private bool died = false;
 
     public SpriteRenderer sprite;
+
+    public Timer timer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +26,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gameOver)
+        if(died)
+        {
+            if(Input.GetButtonDown("Jump"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
+
+        if(started)
         {
             if (Input.GetButtonDown("Jump") && canFlipGravity)
             {
@@ -43,7 +54,8 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 Time.timeScale = 1;
-                gameOver = false;
+                started = true;
+                timer.StartTimer();
             }
         }
     }
@@ -53,8 +65,10 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             Debug.Log("Die");
+            timer.EndTimer();
             Time.timeScale = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            started = false;
+            died = true;
         }
     }
 }
