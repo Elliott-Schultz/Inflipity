@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager;
     private bool gameOver = true;
 
+    public SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,9 @@ public class PlayerController : MonoBehaviour
             {
                 rb.gravityScale *= -1;
                 canFlipGravity = false;
+                sprite.flipY = !sprite.flipY;
                 gameManager.IncreaseObstacleVelocity();
+
             }
             else if (Input.GetButtonUp("Jump"))
             {
