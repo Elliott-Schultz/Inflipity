@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6248723035069732061}
   m_Layer: 0
   m_Name: Segment 2 (2)
-  m_TagString: Untagged
+  m_TagString: Segment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
