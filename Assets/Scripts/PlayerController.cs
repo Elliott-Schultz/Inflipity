@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,25 +9,38 @@ public class PlayerController : MonoBehaviour
     private bool canFlipGravity = true;
 
     public GameManager gameManager;
+    private bool gameOver = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Jump") && canFlipGravity)
+        if(!gameOver)
         {
-            rb.gravityScale *= -1;
-            canFlipGravity = false;
-            gameManager.IncreaseObstacleVelocity();
+            if (Input.GetButtonDown("Jump") && canFlipGravity)
+            {
+                rb.gravityScale *= -1;
+                canFlipGravity = false;
+                gameManager.IncreaseObstacleVelocity();
+            }
+            else if (Input.GetButtonUp("Jump"))
+            {
+                canFlipGravity = true;
+            }
         }
-        else if(Input.GetButtonUp("Jump"))
+        else
         {
-            canFlipGravity = true;
+            if (Input.GetButtonDown("Jump"))
+            {
+                Time.timeScale = 1;
+                gameOver = false;
+            }
         }
     }
 
@@ -35,6 +49,8 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             Debug.Log("Die");
+            Time.timeScale = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
