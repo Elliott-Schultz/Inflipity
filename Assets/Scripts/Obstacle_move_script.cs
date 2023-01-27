@@ -11,6 +11,8 @@ public class Obstacle_move_script : MonoBehaviour
 
     public float minHeight;
 
+    public bool spin = false;
+
     private bool moveUp = true;
 
     // Start is called before the first frame update
@@ -22,17 +24,21 @@ public class Obstacle_move_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(rb.position.y >= maxHeight) {
-            moveUp = false;
-        } else if(rb.position.y <= minHeight) {
-            moveUp = true;
-        }
-        
-        if(moveUp) {
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
+        if(!spin){
+            if(transform.position.y >= maxHeight) {
+                moveUp = false;
+            } else if(transform.position.y <= minHeight) {
+                moveUp = true;
+            }
+            
+            if(moveUp) {
+                
+                transform.Translate(Vector3.up  * speed * Time.deltaTime);
+            } else {
+                transform.Translate(Vector3.down * speed * Time.deltaTime);
+            }
         } else {
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0,speed) * Time.deltaTime);
         }
         
     }
