@@ -71,4 +71,14 @@ public class PlayerController : MonoBehaviour
             died = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "PowerUp")
+        {
+            Debug.Log("Slow Down");
+            gameManager.DecreaseObstacleVelocity(timer.getTime());
+            Destroy(collision.gameObject);
+        }
+    }
 }
