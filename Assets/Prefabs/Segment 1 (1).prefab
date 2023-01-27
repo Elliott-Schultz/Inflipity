@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  maxHeight: 4
+  maxHeight: -1
   minHeight: -4
   spin: 0
 --- !u!1 &708414116896235456
