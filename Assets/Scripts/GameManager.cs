@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public float obstacleVelocity = -5f;
     public float velocityDelta = 0.5f;
+    public List<GameObject> segments;
+    public GameObject getSegment() {
+        return segments[Random.Range(0, segments.Count)];
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +22,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    public float getObstacleVelocity() {
+        return obstacleVelocity;
+    }
+    public float getVelocityDelta() {
+        return velocityDelta;
+    }
     public void IncreaseObstacleVelocity()
     {
         obstacleVelocity -= velocityDelta;
