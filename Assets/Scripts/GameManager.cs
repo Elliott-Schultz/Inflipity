@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float obstacleVelocity = -5f;
+    private float obstacleVelocity;
+    public float defaultVelocity = -5f;
     public float velocityDelta = 0.5f;
     public List<GameObject> segments;
+    public float powerUpScale = 1f;
+    private int previousPowerUpTime = 0;
     public GameObject getSegment() {
         return segments[Random.Range(0, segments.Count)];
     }
@@ -14,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        obstacleVelocity = defaultVelocity;
     }
 
     // Update is called once per frame
@@ -31,5 +34,15 @@ public class GameManager : MonoBehaviour
     public void IncreaseObstacleVelocity()
     {
         obstacleVelocity -= velocityDelta;
+    }
+
+    public void DecreaseObstacleVelocity(int powerUpTime)
+    {
+        Debug.Log(obstacleVelocity);
+        int timeDiff = powerUpTime - previousPowerUpTime;
+        obstacleVelocity += (velocityDelta * timeDiff * powerUpScale);
+        obstacleVelocity = Mathf.Min(defaultVelocity, obstacleVelocity);
+        Debug.Log(obstacleVelocity);
+        previousPowerUpTime = powerUpTime;
     }
 }
