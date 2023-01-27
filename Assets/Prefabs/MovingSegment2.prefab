@@ -283,6 +283,7 @@ MonoBehaviour:
   speed: 1
   maxHeight: 1
   minHeight: 0
+  spin: 0
 --- !u!114 &2878348026555118853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +299,7 @@ MonoBehaviour:
   speed: 3
   maxHeight: -3
   minHeight: -7
+  spin: 0
 --- !u!1 &3325126183102783923
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 3945560661919052094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4392530635468884094}
@@ -1041,6 +1043,7 @@ MonoBehaviour:
   speed: 1
   maxHeight: 5
   minHeight: 3
+  spin: 0
 --- !u!1 &7973055903176391905
 GameObject:
   m_ObjectHideFlags: 0
