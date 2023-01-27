@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         time = 0f;
-        scoreText.SetText(Math.Round(time, 2).ToString("0.00"));
+        scoreText.SetText(time.ToString("0.00"));
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
         if(started)
         {
             time += Time.fixedDeltaTime;
-            scoreText.SetText(Math.Round(time, 2).ToString("0.00"));
+            scoreText.SetText(time.ToString("0.00"));
         }
     }
 
