@@ -35,4 +35,9 @@ public class Timer : MonoBehaviour
     {
         started = false;
     }
+
+    public int getTime()
+    {
+        return (int)time;
+    }
 }

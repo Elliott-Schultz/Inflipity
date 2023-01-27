@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool canFlipGravity = true;
+    private float defaultGravity;
+    public float gravityIncreaseDelta = 0.05f;
 
     public GameManager gameManager;
     private bool started = false;
@@ -15,12 +17,14 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sprite;
 
     public Timer timer;
+    private int previousPowerUpTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 0;
+        defaultGravity = rb.gravityScale;
     }
 
     // Update is called once per frame
@@ -38,7 +42,17 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && canFlipGravity)
             {
-                rb.gravityScale *= -1;
+                rb.gravityScale *= -1f;
+                defaultGravity *= -1f;
+                if(rb.gravityScale < 0f)
+                {
+                    rb.gravityScale -= gravityIncreaseDelta;
+                }
+                else
+                {
+                    rb.gravityScale += gravityIncreaseDelta;
+                }
+
                 canFlipGravity = false;
                 sprite.flipY = !sprite.flipY;
                 gameManager.IncreaseObstacleVelocity();
@@ -69,6 +83,27 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0;
             started = false;
             died = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "PowerUp")
+        {
+            Debug.Log("Slow Down");
+            int timeDiff = timer.getTime() - previousPowerUpTime;
+            if(rb.gravityScale > 0f)
+            {
+                rb.gravityScale -= timeDiff * gravityIncreaseDelta;
+                rb.gravityScale = Mathf.Max(rb.gravityScale, defaultGravity);
+            }
+            else
+            {
+                rb.gravityScale += timeDiff * gravityIncreaseDelta;
+                rb.gravityScale = Mathf.Min(rb.gravityScale, defaultGravity);
+            }
+            gameManager.DecreaseObstacleVelocity(timeDiff);
+            Destroy(collision.gameObject);
         }
     }
 }
