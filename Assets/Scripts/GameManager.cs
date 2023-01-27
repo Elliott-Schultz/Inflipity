@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public float velocityDelta = 0.5f;
     public List<GameObject> segments;
     public float powerUpScale = 1f;
-    private int previousPowerUpTime = 0;
+
     public GameObject getSegment() {
         return segments[Random.Range(0, segments.Count)];
     }
@@ -25,24 +25,25 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
     public float getObstacleVelocity() {
         return obstacleVelocity;
     }
+
     public float getVelocityDelta() {
         return velocityDelta;
     }
+
     public void IncreaseObstacleVelocity()
     {
         obstacleVelocity -= velocityDelta;
     }
 
-    public void DecreaseObstacleVelocity(int powerUpTime)
+    public void DecreaseObstacleVelocity(int timeDiff)
     {
         Debug.Log(obstacleVelocity);
-        int timeDiff = powerUpTime - previousPowerUpTime;
         obstacleVelocity += (velocityDelta * timeDiff * powerUpScale);
         obstacleVelocity = Mathf.Min(defaultVelocity, obstacleVelocity);
         Debug.Log(obstacleVelocity);
-        previousPowerUpTime = powerUpTime;
     }
 }
