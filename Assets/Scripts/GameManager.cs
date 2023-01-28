@@ -7,17 +7,18 @@ public class GameManager : MonoBehaviour
     private float obstacleVelocity;
     public float defaultVelocity = -5f;
     public float velocityDelta = 0.5f;
-    public List<GameObject> segments;
+    public Segment[] segments;
     public float powerUpScale = 1f;
 
-    public GameObject getSegment() {
-        return segments[Random.Range(0, segments.Count)];
+    public Segment getSegment() {
+        return segments[Random.Range(0, segments.Length)];
     }
 
     // Start is called before the first frame update
     void Start()
     {
         obstacleVelocity = defaultVelocity;
+        segments = Resources.FindObjectsOfTypeAll<Segment>();
     }
 
     // Update is called once per frame

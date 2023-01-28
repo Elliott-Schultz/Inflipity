@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7752960910247618628, guid: 8ec03124b66cdce4cbd43ef9effcad21, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7752960910247618630, guid: 8ec03124b66cdce4cbd43ef9effcad21, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -441,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 918418025594692742, guid: 824987264de38f04e8ec947c82026cec, type: 3}
       propertyPath: segments.Array.size
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 918418025594692742, guid: 824987264de38f04e8ec947c82026cec, type: 3}
       propertyPath: segments.Array.data[0]
