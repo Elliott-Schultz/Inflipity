@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         //     }
         // }
         // Debug.Log(timeGetter.getTime());
+        Debug.Log(easySegments.Count);
         return easySegments[Random.Range(0, easySegments.Count)];
     }
 
