@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         obstacleVelocity = defaultVelocity;
         segments = Resources.FindObjectsOfTypeAll<SegmentScript>();
