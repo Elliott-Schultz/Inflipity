@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
     public GameObject startScreen;
     public GameObject gameScreen;
     public GameObject endScreen;
-
+    private int frames = 0;
+    public AudioSource deathSound;
+    public AudioSource gravityUp;
+    public AudioSource gravityDown;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             if (started)
             {
+                frames++;
                 if (Input.GetButtonDown("Jump") && canFlipGravity)
                 {
                     rb.gravityScale *= -1f;
@@ -55,10 +59,12 @@ public class PlayerController : MonoBehaviour
                     if (rb.gravityScale < 0f)
                     {
                         rb.gravityScale -= gravityIncreaseDelta;
+                        deathSound.PlayOneShot(gravityUp.clip, 1.0f);
                     }
                     else
                     {
                         rb.gravityScale += gravityIncreaseDelta;
+                        deathSound.PlayOneShot(gravityDown.clip, 1.0f);
                     }
 
                     canFlipGravity = false;
@@ -69,6 +75,10 @@ public class PlayerController : MonoBehaviour
                 else if (Input.GetButtonUp("Jump"))
                 {
                     canFlipGravity = true;
+                }
+                if (frames % 60 == 0) {
+                    timer.incrementScore(Mathf.RoundToInt(gameManager.getObstacleVelocity() / -5));
+                    gameManager.setCurrentScore(timer.getScore());
                 }
             }
             else
@@ -90,15 +100,18 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             Debug.Log("Die");
+            if (timer.getScore() > timer.getHighScore()) {
+                timer.setHighScore(timer.getScore());
+                PlayerPrefs.SetInt("highScore", timer.getHighScore());
+                PlayerPrefs.Save();
+            }
             timer.EndTimer();
             Time.timeScale = 0;
             started = false;
             died = true;
-            gameScreen.SetActive(false);
-            endScreen.SetActive(true);
+            StartCoroutine(waitForSound());
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "PowerUp")
@@ -118,5 +131,11 @@ public class PlayerController : MonoBehaviour
             gameManager.DecreaseObstacleVelocity(timeDiff);
             Destroy(collision.gameObject);
         }
+    }
+    IEnumerator waitForSound() {
+        deathSound.PlayOneShot(deathSound.clip, 1.0f);
+        yield return new WaitWhile(() => deathSound.isPlaying);
+        gameScreen.SetActive(false);
+        endScreen.SetActive(true);
     }
 }
