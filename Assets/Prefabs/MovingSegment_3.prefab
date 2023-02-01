@@ -310,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7755665683317022230}
   - component: {fileID: 4308731505510279888}
+  - component: {fileID: 5098118203702459817}
   m_Layer: 0
   m_Name: MovingSegment_3
   m_TagString: Segment
@@ -362,6 +363,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &5098118203702459817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315538798321915242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840f731ae973f9845b3d16beb85bbc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &2104956138390883053
 GameObject:
   m_ObjectHideFlags: 0
