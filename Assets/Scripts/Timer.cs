@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     {
         time = 0f;
         scoreText.SetText(score.ToString());
+        highScore = PlayerPrefs.GetInt("highScore");
     }
 
     // Update is called once per frame
