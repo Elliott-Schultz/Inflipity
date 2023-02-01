@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
                 {
                     rb.gravityScale *= -1f;
                     defaultGravity *= -1f;
+                    rb.velocity = new Vector2(0, rb.velocity.y / 2);
                     if (rb.gravityScale < 0f)
                     {
                         rb.gravityScale -= gravityIncreaseDelta;
