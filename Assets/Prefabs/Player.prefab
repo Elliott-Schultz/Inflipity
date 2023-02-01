@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1cf61d040a9a449aeed908bcf7a18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravityIncreaseDelta: 0.05
   gameManager: {fileID: 0}
   sprite: {fileID: 7752960910247618629}
   timer: {fileID: 1056951172}
