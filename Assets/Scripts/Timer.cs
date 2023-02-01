@@ -7,13 +7,15 @@ public class Timer : MonoBehaviour
 {
     private bool started = false;
     public TMPro.TMP_Text scoreText;
+    private int score;
+    private int highScore;
 
     private float time;
     // Start is called before the first frame update
     void Start()
     {
         time = 0f;
-        scoreText.SetText(time.ToString("0.00"));
+        scoreText.SetText(score.ToString());
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class Timer : MonoBehaviour
         if(started)
         {
             time += Time.fixedDeltaTime;
-            scoreText.SetText(time.ToString("0.00"));
+            scoreText.SetText(score.ToString());
         }
     }
 
@@ -39,5 +41,17 @@ public class Timer : MonoBehaviour
     public int getTime()
     {
         return (int)time;
+    }
+    public void incrementScore(int value) {
+        score += value;
+    }
+    public int getScore() {
+        return score;
+    }
+    public void setHighScore(int value) {
+        highScore = value;
+    }
+    public int getHighScore() {
+        return highScore;
     }
 }
