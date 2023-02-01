@@ -19,9 +19,16 @@ public class PlayerController : MonoBehaviour
     public Timer timer;
     private int previousPowerUpTime = 0;
 
+    public GameObject startScreen;
+    public GameObject gameScreen;
+    public GameObject endScreen;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameScreen.SetActive(false);
+        endScreen.SetActive(false);
+        startScreen.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 0;
         defaultGravity = rb.gravityScale;
@@ -37,39 +44,43 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
-
-        if(started)
-        {
-            if (Input.GetButtonDown("Jump") && canFlipGravity)
-            {
-                rb.gravityScale *= -1f;
-                defaultGravity *= -1f;
-                if(rb.gravityScale < 0f)
-                {
-                    rb.gravityScale -= gravityIncreaseDelta;
-                }
-                else
-                {
-                    rb.gravityScale += gravityIncreaseDelta;
-                }
-
-                canFlipGravity = false;
-                sprite.flipY = !sprite.flipY;
-                gameManager.IncreaseObstacleVelocity();
-
-            }
-            else if (Input.GetButtonUp("Jump"))
-            {
-                canFlipGravity = true;
-            }
-        }
         else
         {
-            if (Input.GetButtonDown("Jump"))
+            if (started)
             {
-                Time.timeScale = 1;
-                started = true;
-                timer.StartTimer();
+                if (Input.GetButtonDown("Jump") && canFlipGravity)
+                {
+                    rb.gravityScale *= -1f;
+                    defaultGravity *= -1f;
+                    if (rb.gravityScale < 0f)
+                    {
+                        rb.gravityScale -= gravityIncreaseDelta;
+                    }
+                    else
+                    {
+                        rb.gravityScale += gravityIncreaseDelta;
+                    }
+
+                    canFlipGravity = false;
+                    sprite.flipY = !sprite.flipY;
+                    gameManager.IncreaseObstacleVelocity();
+
+                }
+                else if (Input.GetButtonUp("Jump"))
+                {
+                    canFlipGravity = true;
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    Time.timeScale = 1;
+                    started = true;
+                    timer.StartTimer();
+                    gameScreen.SetActive(true);
+                    startScreen.SetActive(false);
+                }
             }
         }
     }
@@ -83,6 +94,8 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0;
             started = false;
             died = true;
+            gameScreen.SetActive(false);
+            endScreen.SetActive(true);
         }
     }
 

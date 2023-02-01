@@ -51,11 +51,12 @@ public class GameManager : MonoBehaviour
         //     }
         // }
         // Debug.Log(timeGetter.getTime());
+        Debug.Log(easySegments.Count);
         return easySegments[Random.Range(0, easySegments.Count)];
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         obstacleVelocity = defaultVelocity;
         segments = Resources.FindObjectsOfTypeAll<SegmentScript>();
