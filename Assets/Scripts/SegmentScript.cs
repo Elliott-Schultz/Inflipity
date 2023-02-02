@@ -22,7 +22,7 @@ public class SegmentScript : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
         if (transform.position.x < right - 15 && !spawned) {
-            Instantiate(manager.getSegment(), new Vector3(transform.position.x + 50, 0, 0), transform.rotation);
+            Instantiate(manager.getSegment(), new Vector3(right + 25, 0, 0), transform.rotation);
             spawned = true;
         }
         if (transform.position.x < left - 35 && spawned) {

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     private bool started = false;
-    public TMPro.TMP_Text scoreText;
+    public TMPro.TMP_Text timeText;
     private int score;
     private int highScore;
 
@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         time = 0f;
-        scoreText.SetText(score.ToString());
+        timeText.SetText(score.ToString());
         highScore = PlayerPrefs.GetInt("highScore");
     }
 
@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
         if(started)
         {
             time += Time.fixedDeltaTime;
-            scoreText.SetText(score.ToString());
+            timeText.SetText(score.ToString());
         }
     }
 
@@ -43,8 +43,8 @@ public class Timer : MonoBehaviour
     {
         return (int)time;
     }
-    public void incrementScore(int value) {
-        score += value;
+    public void setScore(int value) {
+        score = value;
     }
     public int getScore() {
         return score;
