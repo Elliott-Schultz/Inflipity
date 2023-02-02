@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
     
 
     public SegmentScript getSegment() {
-        if (currentScore < 500) {
+        if (currentScore < 250) {
             return easySegments[Random.Range(0, easySegments.Count)];
-        } else if (currentScore >= 500 && currentScore < 2000) {
+        } else if (currentScore >= 250 && currentScore < 1000) {
             int rng = Random.Range(0, 8);
             if (rng < 2) {
                 return easySegments[Random.Range(0, easySegments.Count)];
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
             } else {
                 return spinningSegments[Random.Range(0, spinningSegments.Count)];
             }
-        } else if (currentScore >= 2000 && currentScore < 8000) {
+        } else if (currentScore >= 1000 && currentScore < 4000) {
             int rng = Random.Range(0, 8);
             if (rng < 2) {
                 return easySegments[Random.Range(0, easySegments.Count)];
@@ -59,12 +59,15 @@ public class GameManager : MonoBehaviour
     {
         Time.fixedDeltaTime = fixedDeltaTime;
         obstacleVelocity = defaultVelocity;
+        Application.targetFrameRate = -1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Cancel")) {
+            Application.Quit();
+        }
     }
 
     public float getObstacleVelocity() {
