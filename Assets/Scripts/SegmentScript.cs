@@ -27,7 +27,7 @@ public class SegmentScript : MonoBehaviour
         {
             if (transform.position.x < right - 15 && !spawned)
             {
-                Instantiate(manager.getSegment(), new Vector3(right + 35, 0, 0), transform.rotation);
+                Instantiate(manager.getSegment(), new Vector3(right + 30, 0, 0), transform.rotation);
                 spawned = true;
             }
         }
