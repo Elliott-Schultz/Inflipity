@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public List<SegmentScript> spinningSegments;
     public float powerUpScale = 1f;
     private int currentScore = 0;
+
+    public float fixedDeltaTime = .001f;
     
 
     public SegmentScript getSegment() {
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Time.fixedDeltaTime = fixedDeltaTime;
         obstacleVelocity = defaultVelocity;
     }
 

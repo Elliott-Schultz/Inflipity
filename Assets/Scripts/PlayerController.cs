@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
                 {
                     rb.gravityScale *= -1f;
                     defaultGravity *= -1f;
+                    rb.velocity = new Vector2(0, rb.velocity.y / 2);
                     if (rb.gravityScale < 0f)
                     {
                         rb.gravityScale -= gravityIncreaseDelta;
@@ -95,30 +96,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Die()
     {
-        if(collision.gameObject.tag == "Obstacle")
+        Debug.Log("Die");
+        if (timer.getScore() > timer.getHighScore())
         {
-            Debug.Log("Die");
-            if (timer.getScore() > timer.getHighScore()) {
-                timer.setHighScore(timer.getScore());
-                PlayerPrefs.SetInt("highScore", timer.getHighScore());
-                PlayerPrefs.Save();
-            }
-            Debug.Log("High Score: " + PlayerPrefs.GetInt("highScore"));
-            timer.EndTimer();
-            Time.timeScale = 0;
-            started = false;
-            died = true;
-            StartCoroutine(waitForSound());
+            timer.setHighScore(timer.getScore());
+            PlayerPrefs.SetInt("highScore", timer.getHighScore());
+            PlayerPrefs.Save();
         }
+        Debug.Log("High Score: " + PlayerPrefs.GetInt("highScore"));
+        timer.EndTimer();
+        Time.timeScale = 0;
+        started = false;
+        died = true;
+        StartCoroutine(waitForSound());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "PowerUp")
         {
             Debug.Log("Slow Down");
-            int timeDiff = timer.getTime() - previousPowerUpTime;
+            int timeDiff = Mathf.Min(timer.getTime() - previousPowerUpTime, 20);
             if(rb.gravityScale > 0f)
             {
                 rb.gravityScale -= timeDiff * gravityIncreaseDelta;
