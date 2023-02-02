@@ -9,23 +9,21 @@ public class PlayerController : MonoBehaviour
     private bool canFlipGravity = true;
     private float defaultGravity;
     public float gravityIncreaseDelta = 0.05f;
-
     public GameManager gameManager;
     private bool started = false;
     private bool died = false;
-
     public SpriteRenderer sprite;
-
     public Timer timer;
     private int previousPowerUpTime = 0;
-
     public GameObject startScreen;
     public GameObject gameScreen;
     public GameObject endScreen;
-    private int frames = 0;
     public AudioSource deathSound;
     public AudioSource gravityUp;
     public AudioSource gravityDown;
+    private float distanceTraveled;
+    public TMPro.TMP_Text scoreText;
+    public TMPro.TMP_Text highScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +33,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 0;
         defaultGravity = rb.gravityScale;
+        distanceTraveled = 0;
     }
 
     // Update is called once per frame
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour
         {
             if (started)
             {
-                frames++;
                 if (Input.GetButtonDown("Jump") && canFlipGravity)
                 {
                     rb.gravityScale *= -1f;
@@ -77,10 +75,9 @@ public class PlayerController : MonoBehaviour
                 {
                     canFlipGravity = true;
                 }
-                if (frames % 60 == 0) {
-                    timer.incrementScore(Mathf.RoundToInt(gameManager.getObstacleVelocity() / -5));
-                    gameManager.setCurrentScore(timer.getScore());
-                }
+                distanceTraveled += gameManager.getObstacleVelocity() * Time.deltaTime;
+                timer.setScore(Mathf.RoundToInt(-1 * distanceTraveled));
+                gameManager.setCurrentScore(timer.getScore());
             }
             else
             {
@@ -106,6 +103,8 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.Save();
         }
         Debug.Log("High Score: " + PlayerPrefs.GetInt("highScore"));
+        scoreText.text += timer.getScore();
+        highScoreText.text += timer.getHighScore();
         timer.EndTimer();
         Time.timeScale = 0;
         started = false;

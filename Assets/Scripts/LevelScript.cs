@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LevelScript : MonoBehaviour
 {
-    
+    public TMPro.TMP_Text highScoreTitleText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        highScoreTitleText.text += PlayerPrefs.GetInt("highScore");
     }
 
     // Update is called once per frame
