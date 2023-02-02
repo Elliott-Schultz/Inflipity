@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if(died)
         {
-            if(Input.GetButtonDown("Jump"))
+            if((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             if (started)
             {
-                if (Input.GetButtonDown("Jump") && canFlipGravity)
+                if ((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)) && canFlipGravity)
                 {
                     rb.gravityScale *= -1f;
                     defaultGravity *= -1f;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
                     gameManager.IncreaseObstacleVelocity();
 
                 }
-                else if (Input.GetButtonUp("Jump"))
+                else if (Input.GetButtonUp("Jump") || Input.GetMouseButtonUp(0))
                 {
                     canFlipGravity = true;
                 }
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (Input.GetButtonDown("Jump"))
+                if ((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)))
                 {
                     Time.timeScale = 1;
                     running.Play();
@@ -113,6 +113,8 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0;
         started = false;
         died = true;
+        running.Stop();
+        helmet.Stop();
         StartCoroutine(waitForSound());
     }
     private void OnTriggerEnter2D(Collider2D collision)
