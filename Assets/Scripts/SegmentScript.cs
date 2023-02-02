@@ -23,11 +23,13 @@ public class SegmentScript : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
+        float pos = transform.position.x;
         if (!isStart)
         {
-            if (transform.position.x < right - 15 && !spawned)
+            if (pos < right - 15 && !spawned)
             {
-                Instantiate(manager.getSegment(), new Vector3(transform.position.x + 50, 0, 0), transform.rotation);
+                SegmentScript seg = Instantiate(manager.getSegment(), new Vector3(pos + 50, 0, 0), transform.rotation);
+                seg.GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
                 spawned = true;
             }
         }
@@ -35,12 +37,13 @@ public class SegmentScript : MonoBehaviour
         {
             if(!spawned)
             {
-                Instantiate(manager.getSegment(), new Vector3(transform.position.x + 50, 0, 0), transform.rotation);
+                SegmentScript seg = Instantiate(manager.getSegment(), new Vector3(pos + 50, 0, 0), transform.rotation);
+                seg.GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
                 spawned = true;
             }
         }
 
-        if (transform.position.x < left - 35 && spawned)
+        if (pos < left - 35 && spawned)
         {
             Destroy(gameObject);
             spawned = false;
