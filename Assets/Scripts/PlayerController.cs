@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "PowerUp")
         {
             Debug.Log("Slow Down");
-            int timeDiff = Mathf.Min(timer.getTime() - previousPowerUpTime, 20);
+            int timeDiff = Mathf.Min(timer.getTime() - previousPowerUpTime, 15);
             if(rb.gravityScale > 0f)
             {
                 rb.gravityScale -= timeDiff * gravityIncreaseDelta;
