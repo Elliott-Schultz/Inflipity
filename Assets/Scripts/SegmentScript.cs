@@ -5,9 +5,11 @@ using UnityEngine;
 public class SegmentScript : MonoBehaviour
 {
     public GameManager manager;
-    private bool spawned = false;
-    private float left;
-    private float right;
+    [SerializeField] private bool spawned = false;
+    [SerializeField] private float left;
+    [SerializeField] private float right;
+
+    public bool isStart = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +23,25 @@ public class SegmentScript : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
-        if (transform.position.x < right - 15 && !spawned) {
-            Instantiate(manager.getSegment(), new Vector3(right + 25, 0, 0), transform.rotation);
-            spawned = true;
+        if (!isStart)
+        {
+            if (transform.position.x < right - 15 && !spawned)
+            {
+                Instantiate(manager.getSegment(), new Vector3(right + 35, 0, 0), transform.rotation);
+                spawned = true;
+            }
         }
-        if (transform.position.x < left - 35 && spawned) {
+        else
+        {
+            if(!spawned)
+            {
+                Instantiate(manager.getSegment(), new Vector3(transform.position.x + 50, 0, 0), transform.rotation);
+                spawned = true;
+            }
+        }
+
+        if (transform.position.x < left - 35 && spawned)
+        {
             Destroy(gameObject);
             spawned = false;
         }
