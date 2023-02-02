@@ -44,7 +44,7 @@ public class BGScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         foreach (GameObject go in activeObjects)
         {
@@ -57,7 +57,7 @@ public class BGScript : MonoBehaviour
             count--;
         }
 
-        if (count < maxObjects && Random.Range(0, 1000) < 1)
+        if (count < maxObjects && Random.Range(0, 1000) <= 1)
         { 
             spawnNewObject();
         }
