@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 918418025594692742}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,5 +44,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab4ff2427115d44aa7acbafaf95ed5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleVelocity: -5
+  defaultVelocity: -5
   velocityDelta: 0.5
+  easySegments:
+  - {fileID: 1303081803004950210, guid: c5d7eeb2d64ab9e41b7fb60d26974b0e, type: 3}
+  - {fileID: 6737003013762010947, guid: a82dfbbf81f4ee74d97ea77017748ebb, type: 3}
+  - {fileID: 9222299991061039348, guid: 642df49e41baa294da4c997caf078816, type: 3}
+  - {fileID: 211318437329206018, guid: 83aa9f1bf876f1c4fa89b7ba5a7f0d43, type: 3}
+  - {fileID: 6102210054179044065, guid: 3da8566383e05f94192c06932387ce9f, type: 3}
+  - {fileID: 8758853742235164317, guid: 95d1c4ea476af6140b43c0ed7afdcd05, type: 3}
+  - {fileID: 1211066650892308610, guid: 479c138172a35de46b96c437dcd6606d, type: 3}
+  - {fileID: 8538616313603331484, guid: 3636596552620a147b16ad94a539d082, type: 3}
+  - {fileID: 9111139043045975939, guid: a54030ec1dc1d3d4ea0d2e1493f3b449, type: 3}
+  - {fileID: 8942654616187093359, guid: 2a5ae597fd4120943acb303165c589a5, type: 3}
+  - {fileID: 4998974489916422021, guid: 859b5687223e0b24c820c816dccc4260, type: 3}
+  - {fileID: 5694266573543973195, guid: 46e3b3ccee575f44ebeb26b85efac06c, type: 3}
+  mediumSegments:
+  - {fileID: 3603997180777586454, guid: 7632ee8f36adc4c469c1ebd751e4f7b9, type: 3}
+  - {fileID: 1032460537309986269, guid: c6ca023ff730b2642ac35a28fe3918c1, type: 3}
+  - {fileID: 8550560791925842149, guid: 8d9fe1156d9be684aab4ce85cf525a34, type: 3}
+  - {fileID: 2223350405558521704, guid: 59cb76fc69af91441b3068584e069fe0, type: 3}
+  - {fileID: 7361825226763268474, guid: aeb3348ca31a9584b8df0c8a591af8fc, type: 3}
+  - {fileID: 4420921637415277009, guid: 6e1330155603bd04892aa3e21bbabaaf, type: 3}
+  movingSegments:
+  - {fileID: -6614107648099525360, guid: ac41e9c65fb6c07469886d60dcc41617, type: 3}
+  - {fileID: 559443600822980288, guid: bea6a12003667b44d8af010bf4ea6948, type: 3}
+  - {fileID: 5098118203702459817, guid: 81f0d186eb10c9248adbf7a19d68fd6f, type: 3}
+  - {fileID: 2537965095366081236, guid: e72f92cdd6dbff847a071c58711c2159, type: 3}
+  - {fileID: 9182601108588701487, guid: a3ab4ede418dcbd40a99b8b72d03dec3, type: 3}
+  - {fileID: -7954756806849055296, guid: d0e998205da81a84c94b254f240529ff, type: 3}
+  spinningSegments:
+  - {fileID: 3854406994707171414, guid: ffa01c5ec16336b459539a07125824a3, type: 3}
+  - {fileID: -2560100748050504592, guid: ebcfdf780cc5d5c47a162eec2842b6bf, type: 3}
+  - {fileID: 1537733974982725108, guid: cd1e32eb93f7791449fe7a45af4c0371, type: 3}
+  - {fileID: -5176816293135398951, guid: b04056f0a011fc546a504b1c498f52c8, type: 3}
+  - {fileID: 8639492816737753547, guid: 2e31d06367cc5f349b2192d185cd3ced, type: 3}
+  - {fileID: 9138169948161827075, guid: b75f56adb31350b4bbb4419aa33040e6, type: 3}
+  powerUpScale: 1
+  fixedDeltaTime: 0.001
