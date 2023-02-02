@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 749483385235747346}
   m_Layer: 0
   m_Name: RedPlanetWithIce
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2392847530565306122}
   m_Layer: 0
   m_Name: SandPlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5594856506137084252}
   - component: {fileID: 6677558082149430502}
+  - component: {fileID: 3767075907024693934}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -271,6 +272,22 @@ MonoBehaviour:
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"SpawnPoint7","value":{"x":9.0,"y":-9.0,"$type":"UnityEngine.Vector2"},"typeHandle":{"Identification":"UnityEngine.Vector2,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!114 &3767075907024693934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902035063162324850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ccc7faed68d1343984ed13a67eb6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {x: 0, y: 0}
+  bgObjects:
+  - {fileID: 6840723202720111484}
 --- !u!1 &1397908442366187575
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +301,7 @@ GameObject:
   - component: {fileID: 7409926566012777279}
   m_Layer: 0
   m_Name: RedPlanetSputnik
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,7 +402,7 @@ GameObject:
   - component: {fileID: 3863709535918791348}
   m_Layer: 0
   m_Name: PurplePlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -486,7 +503,7 @@ GameObject:
   - component: {fileID: 8212823851891584048}
   m_Layer: 0
   m_Name: OrangePlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,7 +604,7 @@ GameObject:
   - component: {fileID: 8270647598351348572}
   m_Layer: 0
   m_Name: RedPlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,7 +705,7 @@ GameObject:
   - component: {fileID: 8932896079465100656}
   m_Layer: 0
   m_Name: IcePlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,7 +806,7 @@ GameObject:
   - component: {fileID: 1019815166284854000}
   m_Layer: 0
   m_Name: EarthLike
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -890,7 +907,7 @@ GameObject:
   - component: {fileID: 3748789532636263533}
   m_Layer: 0
   m_Name: Galaxy
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -991,7 +1008,7 @@ GameObject:
   - component: {fileID: 1705195457145264505}
   m_Layer: 0
   m_Name: BluePlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1092,7 +1109,7 @@ GameObject:
   - component: {fileID: 4317285049819724522}
   m_Layer: 0
   m_Name: StormPlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1192,7 +1209,7 @@ GameObject:
   - component: {fileID: 3019507127442501427}
   m_Layer: 0
   m_Name: StarField
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,7 +1294,7 @@ GameObject:
   - component: {fileID: 8593023112709921509}
   m_Layer: 0
   m_Name: DarkPlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,7 +1395,7 @@ GameObject:
   - component: {fileID: 373380058964368651}
   m_Layer: 0
   m_Name: LavaPlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1479,7 +1496,7 @@ GameObject:
   - component: {fileID: 1344128340479609025}
   m_Layer: 0
   m_Name: CyanPlanet
-  m_TagString: Untagged
+  m_TagString: BGObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
