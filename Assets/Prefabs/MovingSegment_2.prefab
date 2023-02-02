@@ -910,7 +910,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!114 &559443600822980288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,6 +924,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  spawned: 0
+  left: 0
+  right: 0
+  isStart: 0
 --- !u!1 &6072117166530911643
 GameObject:
   m_ObjectHideFlags: 0
