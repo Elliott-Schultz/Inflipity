@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {
                     Time.timeScale = 1;
+                    running.Play();
+                    helmet.Play();
                     started = true;
                     timer.StartTimer();
                     gameScreen.SetActive(true);
