@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource gravityUp;
     public AudioSource gravityDown;
+    public AudioSource running;
+    public AudioSource helmet;
     private float distanceTraveled;
     public TMPro.TMP_Text scoreText;
     public TMPro.TMP_Text highScoreText;
@@ -58,12 +60,12 @@ public class PlayerController : MonoBehaviour
                     if (rb.gravityScale < 0f)
                     {
                         rb.gravityScale -= gravityIncreaseDelta;
-                        deathSound.PlayOneShot(gravityUp.clip, 1.0f);
+                        gravityUp.PlayOneShot(gravityUp.clip, 1.0f);
                     }
                     else
                     {
                         rb.gravityScale += gravityIncreaseDelta;
-                        deathSound.PlayOneShot(gravityDown.clip, 1.0f);
+                        gravityDown.PlayOneShot(gravityDown.clip, 1.0f);
                     }
 
                     canFlipGravity = false;
@@ -129,6 +131,7 @@ public class PlayerController : MonoBehaviour
             }
             gameManager.DecreaseObstacleVelocity(timeDiff);
             Destroy(collision.gameObject);
+            distanceTraveled -= 100;
         }
     }
     IEnumerator waitForSound() {
