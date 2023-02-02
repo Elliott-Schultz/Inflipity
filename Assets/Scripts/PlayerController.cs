@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource gravityUp;
     public AudioSource gravityDown;
+    public AudioSource running;
+    public AudioSource helmet;
     private float distanceTraveled;
     public TMPro.TMP_Text scoreText;
     public TMPro.TMP_Text highScoreText;
@@ -109,6 +111,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0;
         started = false;
         died = true;
+        running.Stop();
         StartCoroutine(waitForSound());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -129,7 +132,13 @@ public class PlayerController : MonoBehaviour
             }
             gameManager.DecreaseObstacleVelocity(timeDiff);
             Destroy(collision.gameObject);
+            distanceTraveled -= 100;
+        } else {
+            helmet.Play();
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision) {
+        helmet.Stop();
     }
     IEnumerator waitForSound() {
         deathSound.PlayOneShot(deathSound.clip, 1.0f);
