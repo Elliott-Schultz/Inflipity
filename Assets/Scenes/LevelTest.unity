@@ -1756,6 +1756,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5224967996704302532, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224967996704302532, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349071042994633554, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349071042994633554, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349071043298292984, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349071043298292984, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7349071044039585350, guid: 913efef2764f4294687a89a1c0f5db20, type: 3}
       propertyPath: m_RootOrder
       value: 6
