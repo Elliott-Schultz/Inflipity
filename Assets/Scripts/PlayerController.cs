@@ -60,12 +60,12 @@ public class PlayerController : MonoBehaviour
                     if (rb.gravityScale < 0f)
                     {
                         rb.gravityScale -= gravityIncreaseDelta;
-                        deathSound.PlayOneShot(gravityUp.clip, 1.0f);
+                        gravityUp.PlayOneShot(gravityUp.clip, 1.0f);
                     }
                     else
                     {
                         rb.gravityScale += gravityIncreaseDelta;
-                        deathSound.PlayOneShot(gravityDown.clip, 1.0f);
+                        gravityDown.PlayOneShot(gravityDown.clip, 1.0f);
                     }
 
                     canFlipGravity = false;
@@ -111,7 +111,6 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0;
         started = false;
         died = true;
-        running.Stop();
         StartCoroutine(waitForSound());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -133,12 +132,7 @@ public class PlayerController : MonoBehaviour
             gameManager.DecreaseObstacleVelocity(timeDiff);
             Destroy(collision.gameObject);
             distanceTraveled -= 100;
-        } else {
-            helmet.Play();
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision) {
-        helmet.Stop();
     }
     IEnumerator waitForSound() {
         deathSound.PlayOneShot(deathSound.clip, 1.0f);
