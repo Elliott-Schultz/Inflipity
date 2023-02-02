@@ -1006,6 +1006,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  spawned: 0
+  left: 0
+  right: 0
+  isStart: 0
 --- !u!1001 &3109080166862744000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1023,11 +1027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3922597513758002879, guid: 70ae9c850ebc93842b1fedcce2f41713, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.08
+      value: 21.38
       objectReference: {fileID: 0}
     - target: {fileID: 3922597513758002879, guid: 70ae9c850ebc93842b1fedcce2f41713, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.74
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 3922597513758002879, guid: 70ae9c850ebc93842b1fedcce2f41713, type: 3}
       propertyPath: m_LocalPosition.z
