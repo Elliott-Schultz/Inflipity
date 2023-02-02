@@ -720,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 918418025594692742, guid: 824987264de38f04e8ec947c82026cec, type: 3}
       propertyPath: powerUpScale
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 918418025594692743, guid: 824987264de38f04e8ec947c82026cec, type: 3}
       propertyPath: m_RootOrder
