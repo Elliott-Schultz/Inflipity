@@ -134,9 +134,17 @@ PrefabInstance:
       propertyPath: timeText
       value: 
       objectReference: {fileID: 68795628}
+    - target: {fileID: 2485079124364102393, guid: 8ec03124b66cdce4cbd43ef9effcad21, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7752960910247618626, guid: 8ec03124b66cdce4cbd43ef9effcad21, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752960910247618628, guid: 8ec03124b66cdce4cbd43ef9effcad21, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7752960910247618630, guid: 8ec03124b66cdce4cbd43ef9effcad21, type: 3}
       propertyPath: m_RootOrder

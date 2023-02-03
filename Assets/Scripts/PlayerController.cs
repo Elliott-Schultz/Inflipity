@@ -107,8 +107,8 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.Save();
         }
         Debug.Log("High Score: " + PlayerPrefs.GetInt("highScore"));
-        scoreText.text += timer.getScore();
-        highScoreText.text += timer.getHighScore();
+        scoreText.text = "Final Score: " + timer.getScore();
+        highScoreText.text = "High Score: " + timer.getHighScore();
         timer.EndTimer();
         Time.timeScale = 0;
         started = false;

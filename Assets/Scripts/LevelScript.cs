@@ -8,7 +8,7 @@ public class LevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        highScoreTitleText.text += PlayerPrefs.GetInt("highScore");
+        highScoreTitleText.text = "High Score: " + PlayerPrefs.GetInt("highScore");
     }
 
     // Update is called once per frame
